@@ -1,16 +1,17 @@
 import { sqliteConnection } from "../databases/sqlite3";
 import { UserDataType } from "../validations/userSchema";
 
-export type createUserDataType = UserDataType & { id: string };
+export type CreateUserDataType = UserDataType & { id: string };
 
 export const userRepository = {
-  async createUser(data: createUserDataType) {
+  async createUser(data: CreateUserDataType) {
     try {
       const { id, name, email, password } = data;
 
       const db = await sqliteConnection();
+
       const querySQL =
-        "INSERT INTO users (id, name, email, password) VALUES (?,?,?,?);";
+        "INSERT INTO users (id, name, email, password) VALUES (?, ?, ?, ?);";
 
       await db.run(querySQL, [id, name, email, password]);
 
@@ -23,7 +24,9 @@ export const userRepository = {
   async getUserByEmail(email: string) {
     try {
       const db = await sqliteConnection();
+
       const querySQL = "SELECT * FROM users WHERE email = ?;";
+
       const user = await db.get(querySQL, [email]);
 
       return user;

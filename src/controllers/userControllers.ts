@@ -9,15 +9,9 @@ export const userControllers = {
       const { name, email, password } = userSchema.parse(req.body);
 
       const userCreated = await userServices.create(
-        {
-          name,
-          email,
-          password,
-        },
+        { name, email, password },
         userRepository
       );
-
-      // services
 
       return res.status(201).json({ message: "user created!", userCreated });
     } catch (error) {

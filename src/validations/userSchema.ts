@@ -1,6 +1,7 @@
 import { z } from "zod";
+
 export const userSchema = z
-.object({
+  .object({
     name: z
       .string({
         required_error: "name is required!",
@@ -31,4 +32,4 @@ export const userSchema = z
   })
   .strict();
 
-  export type UserDataType = z.infer<typeof userSchema>
+export type UserDataType = z.infer<typeof userSchema>;

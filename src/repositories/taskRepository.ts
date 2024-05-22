@@ -1,10 +1,10 @@
 import { sqliteConnection } from "../databases/sqlite3";
 import { CreateTaskDataTypes } from "../services/taskServices";
 
-type createTaskTypes = CreateTaskDataTypes & { id: string };
+type CreateTaskTypes = CreateTaskDataTypes & { id: string };
 
 export const taskRepository = {
-  async createTask(data: createTaskTypes) {
+  async createTask(data: CreateTaskTypes) {
     try {
       const { id, title, description, date, status, idUser } = data;
 
@@ -27,9 +27,9 @@ export const taskRepository = {
 
       const querySQL = "SELECT * FROM tasks WHERE id = ?;";
 
-      const user = await db.get(querySQL, [id]);
+      const task = await db.get(querySQL, [id]);
 
-      return user;
+      return task;
     } catch (error) {
       throw error;
     }

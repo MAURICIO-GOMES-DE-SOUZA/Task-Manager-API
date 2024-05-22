@@ -1,4 +1,5 @@
 import { z } from "zod";
+
 export const taskSchema = z
   .object({
     title: z
@@ -14,7 +15,7 @@ export const taskSchema = z
         required_error: "description is required!",
         invalid_type_error: "description must be a string!",
       })
-      .min(3, "title must have at least 3 characters!")
+      .min(3, "description must have at least 3 characters!")
       .max(255, "max description length exceeded!"),
 
     date: z
@@ -22,7 +23,7 @@ export const taskSchema = z
         required_error: "date is required!",
         invalid_type_error: "date must be a string!",
       })
-      .datetime({ message: "date must be UTC!" }),
+      .datetime({ message: "date must be UTC format!" }),
 
     status: z.enum(["pending", "completed"], {
       required_error: "status is required!",
