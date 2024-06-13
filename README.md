@@ -58,5 +58,5 @@ KEY_TOKEN=""
 
 ## Links
 
-- [Deploy](https://task-manager-seven-indol.vercel.app/)
-- [Front Repository](https://github.com/EmanuelQuintino/Task-Manager)
+- [Deploy](https://task-manager-murex-two.vercel.app/)
+- [Front Repository](https://github.com/MAURICIO-GOMES-DE-SOUZA/Task-Manager?tab=readme-ov-file)
